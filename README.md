@@ -1,15 +1,46 @@
-# vfox-plugin-template
+# vfox-tinygo
 
-This is a [vfox plugin](https://vfox.dev/plugins/create/howto.html) template with CI that package and publish the plugin.
+[TinyGo](https://tinygo.org/) plugin for [Version Fox (vfox)](https://vfox.dev/).
 
-## Usage
+TinyGo is a Go compiler for small places: microcontrollers, WebAssembly (WASM/WASI), and command-line tools.
 
-1. [Generate](https://github.com/version-fox/vfox-plugin-template/generate) a new repository based on this template.
-2. Configure [metadata](https://github.com/version-fox/vfox-plugin-template/blob/main/metadata.lua) information
-3. To develop your plugin further, please read [the plugins create section of the docs](https://vfox.dev/plugins/create/howto.html).
+## Prerequisites
 
+TinyGo requires standard Go to be installed on your system. You can install it using vfox:
 
-## How to publish?
+```shell
+vfox add golang
+vfox install golang@latest
+vfox use golang
+```
 
-1. Push a new tag to the repository which name is `vX.Y.Z` (X.Y.Z is the version number).
-2. The CI will automatically package, then publish [release](https://github.com/version-fox/vfox-plugin-template/releases/tag/v0.0.1) and publish [manifest](https://github.com/version-fox/vfox-plugin-template/releases/tag/manifest).
+## Installation
+
+```shell
+# Add tinygo plugin
+vfox add tinygo
+
+# Search available versions
+vfox search tinygo
+
+# Install latest version
+vfox install tinygo@latest
+
+# Install a specific version
+vfox install tinygo@0.41.1
+
+# Use installed version
+vfox use tinygo
+```
+
+## Supported Platforms
+
+- **Windows**: `amd64`
+- **macOS (Darwin)**: `arm64` (Apple Silicon), `amd64` (Intel)
+- **Linux**: `amd64`, `arm64`, `arm` (ARMv6/ARMv7/Raspberry Pi)
+
+## Environment Variables
+
+The plugin automatically configures:
+- `PATH`: includes `<tinygo-sdk-path>/bin`
+- `TINYGOROOT`: points to `<tinygo-sdk-path>`
