@@ -38,10 +38,11 @@ end
 
 function util.clean_version(raw)
     if not raw then return "" end
-    -- Remove "Release ", "release ", "Release-", "release-", and leading "v"
-    local v = raw:gsub("^[Rr]elease[%s%-]*", ""):gsub("^v", "")
+    -- Remove "Release ", "release ", "Release-", "release-", and leading "v"/"V"
+    local v = raw:gsub("^[Rr]elease[%s%-]*", ""):gsub("^[vV]", "")
     return v
 end
+
 
 function util.fetch_all_releases()
     local mirror = os.getenv("VFOX_TINYGO_MIRROR") or os.getenv("GITHUB_MIRROR")
